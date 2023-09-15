@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Elenco prodotti da aggiornare</title>
+	<link rel="stylesheet" href="/css/admin/manageProdotti.css" />
+</head>
+
+<body>
+
+	<header>
+		<div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	
+	<div class="logo"><a href="/"><img src="/images/logo.siw.jpg" width="50%"/></a></div>
+	<h1>Prodotti da aggiornare</h1>
+	<div th:if="${prodotti.isEmpty()}">Non ci sono prodotti nel sistema</div>
+	<ul class = "product-list">
+		<li th:each="prodotto : ${prodotti}">
+			<a th:href="@{'/prodotto' + '/' + ${prodotto.id}}" th:text="${prodotto.nome}"> Fusilli barilla</a>
+            <a th:href="@{'/admin/formUpdateProdottoData' + '/' + ${prodotto.id}}" th:text="'    Agiorna dati' " class="update-link">Aggiorna dati di un prodotto</a>
+            <a th:href="@{'/admin/deleteProdotto' + '/' + ${prodotto.id}}" th:text=" '   Elimina prodotto' " class="delete-link"> Elimina prodotto</a>
+            <a th:href="@{'/admin/formUpdateFornitori' + '/' + ${prodotto.id}}" th:text=" 'Cambia fornitori del prodotto'" class="action-link"> Cambia fornitori del prodotto </a>
+                
+		</li>
+	</ul>
+</body>
+
+</html>

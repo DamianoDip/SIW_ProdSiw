@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Info</title>
+    <link rel="stylesheet" href="/css/fornitore.css" />
+</head>
+<body>
+    <header>
+        <div th:if="${userDetails}">
+            <span th:text="${userDetails.username}"></span>
+            <a href="/logout">Logout</a>
+        </div>
+        <div th:unless="${userDetails}">
+            <a href="/login">Login</a>
+        </div>
+    </header>
+    <div class="logo-image"><a href="/"><img src="/images/logo.siw.jpg" width="50%" /></a></div>
+    <div th:if="${fornitore}" class="fornitore-details">
+        <h1><span th:text="${fornitore.nome}"></span></h1>
+        <div class="fornitore-info">
+            <span th:text="'Email: ' + ${fornitore.email}">rossi@gmail.com</span>
+        </div>
+        <div class="fornitore-info">
+            <span th:text="'Indirizzo: ' + ${fornitore.indirizzo}">Via Roma 27, Bracciano (Rm)</span>
+        </div>
+    </div>
+</body>
+</html>

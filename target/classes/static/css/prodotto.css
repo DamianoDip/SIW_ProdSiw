@@ -1,0 +1,142 @@
+/* Stile generale del body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+/* Stile del logo */
+header img {
+    width: 150px;
+}
+
+/* Stile del logo */
+.logo-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-image img {
+    max-width: 50%;
+}
+
+/* Stile del contenitore dei dettagli prodotto */
+.product-details {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Stile del contenitore dei dettagli prodotto */
+.product-details {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Aggiunto per centrare il contenuto */
+}
+
+/* Stile dell'immagine prodotto */
+.product-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto; /* Aggiunto per centrare l'immagine */
+}
+
+
+/* Stile dei dettagli prodotto */
+.product-name, .product-price, .product-description {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Stile dei fornitori */
+.product-suppliers {
+    margin-top: 20px;
+}
+
+/* Stile dei commenti */
+.product-comments {
+    margin-top: 20px;
+}
+
+.comment {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.comment p {
+    margin: 0;
+}
+
+.comment-author {
+    color: #3498db;
+}
+
+.comment-actions {
+    margin-top: 10px;
+}
+
+.comment-actions a {
+    color: #e74c3c;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+/* Stile dei rettangoli */
+.rectangle {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Stile dei commenti */
+.list-group-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.list-group-item .d-flex {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-group-item span {
+    margin: 0;
+}
+

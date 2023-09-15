@@ -1,0 +1,90 @@
+ <html>
+  <head>
+    <title>Info</title>
+	<link rel="stylesheet" href="/css/prodotto.css" />
+</head>
+
+<body>
+
+  <header>
+		<div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+	<div class="logo-image"><a href="/"><img src="/images/logo.siw.jpg" width="50%"/></a></div>
+  <div th:if="${prodotto}" class = "product-details">
+    <h1><span th:text = " ${prodotto.nome}"></span></h1>
+        <img th:src="@{'/display/image/' + ${prodotto.image.id}}"  class="product-image">
+       
+      <div class="rectangle product-suppliers">
+        <h3>Fornitori</h3>
+        <div th:if="${prodotto.fornitori.isEmpty()}">Non ci sono fornitori associati a questo prodotto </div>
+        <ul class="company-list">
+          <li th:each="fornitore : ${fornitori}" class="company-item">
+            <a th:href="@{'/fornitore' + '/' + ${fornitore.id}}"
+              th:text="${fornitore.nome} "> RossiRifornimenti </a>
+          </li>
+        </ul> 
+
+      </div>
+
+    <div  class="rectangle product-comments">
+
+        <div th:if="${userDetails}">
+          <h3>Commenti</h3>
+
+          <!-- Verifica se l'utente ha un commento esistente -->
+          <div th:if="${commento}">
+              <a th:href="@{'/default/modificaCommento/' + ${prodotto.id} + '/' + ${commento.id}}"
+                th:text=" 'Modifica  o' "></a>
+
+               <a th:href="@{'/default/eliminaCommento/' + ${prodotto.id} + '/' + ${commento.id}  }"
+                th:text=" '  Elimina' "></a>
+                
+              <span th:text="${commento.testo} + '       '"> Mi è piaciuto molto! </span>
+              <span th:text="'Scritto da: ' + ${commento.autore}"> </span>
+          </div>
+          
+          <!-- Se l'utente non ha un commento esistente -->
+          <div th:unless="${commento}">
+               <a th:href="@{'/default/creaCommento/' + ${prodotto.id} }"
+                th:text="'Aggiungi un commento per questo prodotto'"></a>
+          </div>
+
+        </div>
+        
+
+        
+        <div th:if="${commenti}">
+          <h3>Commenti degli utenti</h3>
+          <ul class="list-group list-unstyled" >
+              <li th:each="comm : ${commenti}" class="list-group-item">
+                  <div class="d-flex justify-content-between align-items-center">
+                      <span th:text="${comm.testo}"></span>
+                      <span><small th:text="'Scritto da: ' + ${comm.autore}"></small></span>
+                  </div>
+              </li>
+          </ul>
+      </div>
+
+        <div th:unless = "${commenti}">
+
+          <span th:text = "'Non ci sono commenti di altri utenti'"> Bello!</span>
+          
+        </div>
+
+
+    </div>
+
+
+          
+        
+      
+
+      </div>
+  </body>
+</html>

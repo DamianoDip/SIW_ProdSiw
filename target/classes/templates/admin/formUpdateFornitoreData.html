@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Aggiorna i dati di un fornitore
+	</title>
+	<link rel="stylesheet" href="/css/admin/formUpdateData.css" />
+</head>
+
+<body>
+
+	<header>
+		<div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout   Nome Utente</a>
+		</div>
+		<div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div class="logo"><a href="/"><img src="/images/logo.siw.jpg" width="50%"/></a></div>
+	<h1>Aggiorna dati fornitore</h1>
+	<form th:action="@{'/admin/updateFornitoreData' + '/' + ${oldFornitore.id}}" method="POST" th:object="${fornitore} ">
+  		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+  		</div>
+		
+          <h2 class="valori-attuali">Valori attuali</h2>
+		
+            <div class="vecchi-valori" th:if="${ oldFornitore}">
+                <span th:text=" 'Nome :' +   ${oldFornitore.nome}"> amz </span>
+                <span th:text=" ' Email:' +  ${oldFornitore.email} + '   '"> 12 </span>
+                <span th:text="'  Indirizzo:' + ${oldFornitore.indirizzo} ">2</span>
+
+          
+            </div>
+		
+
+		<div>
+            <h2 class="valori-aggiornati">Aggiorna i dati del fornitore</h2>
+            <div>
+                <label>Nome:</label> 
+                <span><input type="text" th:field="${fornitore.nome}" th:value="${oldFornitore.nome}" /></span>
+                <span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+                </span>
+            </div>
+    
+            <div>
+                <label>Email:</label> <span><input type="text" th:field="${fornitore.email}"  th:value="${oldFornitore.email} "/></span>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                </span>
+            </div>
+            <div>
+                <label>Indirizzo:</label> <span><input type="text" th:field="${fornitore.indirizzo}"  /></span>
+                <span th:if="${#fields.hasErrors('indirizzo')}" th:errors="*{indirizzo}">
+                </span>
+            </div>
+    
+
+               <div>
+                <span><button type="submit">Conferma</button></span>
+            </div>
+	</form>
+</body>
+
+</html>

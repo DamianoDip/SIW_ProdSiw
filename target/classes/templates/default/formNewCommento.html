@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Aggiungi Commento
+	</title>
+	<link rel="stylesheet" href="/css/default/formCommento.css" />
+</head>
+
+<body>
+
+	<header>
+		<div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div class="logo"><a href="/"><img src="/logo.siw.png" width="50%"/></a></div>
+	<h1>Aggiungi un commento</h1>
+	<form th:action="@{'/default/newCommento/' + ${prod_id}}" method="POST" th:object="${commento}">
+  		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+  		</div>
+		
+		<div class="testoebox">
+			<label>Testo del commento:</label> 
+			<span ><input type="text" th:field="${commento.testo}"  class="box-testo"></span>
+		    <span th:if="${#fields.hasErrors('testo')}" th:errors="*{testo}">
+		    </span>
+		</div>
+	
+		<div>
+			<span><button type="submit" class="button">Conferma</button></span>
+		</div>
+	</form>
+</body>
+
+</html>

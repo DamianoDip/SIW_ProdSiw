@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+		Aggiorna un commento
+	</title>
+	<link rel="stylesheet" href="/css/default/formUpdateCommento.css" />
+</head>
+
+<body>
+
+	<header>
+		<div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div class="logo"><a href="/"><img src="/logo.siw.png" width="50%"/></a></div>
+	<h1>Aggiorna commento</h1>
+	<form th:action="@{'/default/aggiornaCommento' + '/' + ${prodotto.id} + '/' + ${vecchioCommento.id}}" method="POST" th:object="${nuovoCommento} ">
+  		<div th:if="${#fields.hasGlobalErrors()}">
+  			<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p> 
+  		</div>
+		
+
+
+		<div >
+
+            <div class="testoebox">
+                <label>Aggiorna:</label> 
+                <span ><input type="text" th:field="${nuovoCommento.testo}" th:value="${vecchioCommento.testo}"  class="box-testo" />
+                </span>
+                <span th:if="${#fields.hasErrors('testo')}" th:errors="*{testo}">
+                </span>
+            </div>
+			
+            
+
+               <div>
+                <span ><button type="submit" class="button">Conferma</button></span>
+            </div>
+	</form>
+</body>
+
+</html>

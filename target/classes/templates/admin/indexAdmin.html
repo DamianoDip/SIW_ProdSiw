@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			ProdSiw - Homepage
+		</title>
+		<link rel="stylesheet" href="/css/index.css" />
+	</head>
+	<body>
+
+		<header>
+			<header>
+				<div th:if="${userDetails}">
+					<span th:text="${userDetails.username}"></span>
+					<a href="/logout">Logout</a>
+				</div>
+				<div th:unless="${userDetails}">
+					<a href="/login">Login</a>
+				</div>
+			</header>
+		</header>
+		<div><img src="/images/logo.siw.jpg" width="50%"/></div>
+		<h1>ProdSiw</h1>
+		<div class="operation-block">
+			<a href="/admin/indexAdminProdotto">
+				<div class="block-content">
+					<span th:text = " 'Vai ai prodotti' "></span>
+					<p></p>
+				</div>
+			</a>
+		</div>
+
+		<div class="operation-block">
+			<a href="/admin/indexAdminFornitore">
+				<div class="block-content">
+					<span th:text = " 'Vai ai fornitori' "></span>
+					<p></p>
+				</div>
+			</a>
+		</div>
+
+	</body>
+</html>
