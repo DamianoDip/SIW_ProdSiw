@@ -1,0 +1,52 @@
+
+/* Reset degli stili predefiniti */
+body, h1, h2, h3, p, div, ul, li {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    align-items: center;
+    text-align: center;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Stile del logo */
+.logo-image {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo-image img {
+    max-width: 50%;
+}
+
+

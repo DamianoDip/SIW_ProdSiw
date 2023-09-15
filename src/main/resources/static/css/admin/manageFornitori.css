@@ -1,0 +1,128 @@
+
+/* Reset degli stili predefiniti */
+body, h1, h2, h3, p, div, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 20px;
+    text-align: center;
+}
+
+.operation-block {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.operation-block:hover {
+    transform: scale(1.02);
+}
+
+.operation-block a {
+    color: #333;
+    text-decoration: none;
+}
+
+.block-content {
+    text-align: center;
+}
+
+.block-content img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.block-content p {
+    font-size: 18px;
+}
+
+
+.logo{
+    text-align: center;
+}
+
+.lista-fornitori{
+    text-align: center;
+}
+
+
+/* Stile per la lista di prodotti */
+ul.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Stile per ciascun elemento della lista */
+ul.product-list li {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Stile per i link dei prodotti */
+ul.product-list li a {
+    text-decoration: none;
+    color: #25d125;
+    font-weight: bold;
+}
+
+/* Stile per i link delle azioni */
+ul.product-list li a.action-link {
+    margin-left: 10px;
+    color: #e8730d;
+}
+
+/* Stile per i link di aggiornamento dati e eliminazione */
+
+ul.product-list li a.delete-link {
+    margin-left: 10px;
+    color: #c81717;
+}
+
+ul.product-list li a.update-link{
+    margin-left: 10px;
+    color: #0f5bb2;
+}

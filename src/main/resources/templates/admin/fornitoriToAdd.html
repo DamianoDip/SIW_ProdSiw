@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aggiorna fornitori</title>
+	<link rel="stylesheet" href="/css/admin/fornitoriToAdd.css" />
+</head>
+
+<body>
+
+  <header>
+		<div th:if="${userDetails}">
+			<span th:text="${userDetails.username}"></span>
+			<a href="/logout">Logout</a>
+		</div>
+		<div th:unless="${userDetails}">
+			<a href="/login">Login</a>
+		</div>
+	</header>
+
+	<div class="logo"><a href="/"><img src="/images/logo.siw.jpg" width="50%"/></a></div>
+    <h1>Modifica fornitori del prodotto</h1>
+<div class="bottom-page">
+    <h2>Rifornitori non associati al prodotto :</h2>
+
+    <div th:if="${ !fornitoreNotAssociatedToProduct.isEmpty()}">
+        <span th:text="${prodotto.nome}"> Fusilli barilla </span>
+        <li th:each="fornitore : ${fornitoreNotAssociatedToProduct}">
+            <a th:href="@{'/fornitore' + '/' + ${fornitore.id}}"
+              th:text="${fornitore.nome}  "> RossiRifornimenti</a>
+              <a th:href="@{'/admin/addFornitore'  + '/' + ${fornitore.id} + '/' + ${prodotto.id}}"
+              >  Aggiungi </a>
+          </li>
+        
+    </div>
+    <div th:unless="${fornitoreNotAssociatedToProduct}">Non ci sono fornitori associati al prodotto</div>
+    
+
+    <h2>Rifornitori  associati al prodotto :</h2>
+
+
+    <div th:if="${ !fornitoreAssociatedToProduct.isEmpty()}">
+        <span th:text="${prodotto.nome}"> Fusilli </span>
+        <li th:each="fornitore : ${fornitoreAssociatedToProduct}">
+            <a th:href="@{'/fornitore' + '/' + ${fornitore.id}}"
+              th:text="${fornitore.nome}  "> Rossi</a>
+              <a th:href="@{'/admin/removeFornitore'  + '/' + ${fornitore.id} + '/' + ${prodotto.id}}"
+              >  Rimuovi </a>
+          </li>
+        
+    </div>
+    <div th:unless="${fornitoreAssociatedToProduct}">Non esiste</div>
+
+</div>
+    
+  </body>
+  </html>

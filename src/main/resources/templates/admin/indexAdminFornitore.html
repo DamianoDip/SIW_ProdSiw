@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			ProdSiw - Fornitori
+		</title>
+		<link rel="stylesheet" href="/css/admin/indexAdmin.css" />
+	</head>
+	<body>
+
+		<header>
+			<div th:if="${userDetails}">
+				<span th:text="${userDetails.username}"></span>
+				<a href="/logout">Logout</a>
+			</div>
+			<div th:unless="${userDetails}">
+				<a href="/login">Login</a>
+			</div>
+		</header>
+		
+		<div class="logo"><img src="/images/logo.siw.jpg" width="50%"/></div>
+		<h1>Fornitori:</h1>
+
+		<div class="operation-block">
+			<div class="block-content">
+			<a href="/fornitori"> Mostra i fornitori</a>
+			</div>
+		</div>
+		<div class="operation-block">
+			<div class="block-content">
+			<a href="/admin/formNewFornitore"> Aggiungi fornitore</a>
+			</div>
+		</div>
+
+		<div class="operation-block">
+			<div class="block-content">
+			<a href="/admin/manageFornitori"> Modifica fornitori</a>
+			</div>
+		</div>
+
+
+		
+
+	</body>
+</html>

@@ -1,0 +1,50 @@
+/* Stile per l'intestazione */
+header {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+.prodotti-scritta{
+    text-align: center;
+}
+
+
+
+/* Stile per il testo del titolo della card */
+.card-title a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Stile per il testo della descrizione della card */
+.card-text {
+    color: #666;
+}
+
+/* Stile per il pulsante "Vai al prodotto" */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.buttons-container {
+    margin-bottom: 20px;
+}
+
+
+
+
